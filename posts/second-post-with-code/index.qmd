@@ -1,0 +1,31 @@
+---
+title: "How much TV are people watching, separated by age"
+author: "Alex Joffe"
+date: "2023-11-06"
+categories: [code, analysis]
+image: "image.jpg"
+---
+
+This data set is part of the forcats package and asks general questions of around 21,000 respondents, covering things like age, religion, party affiliation, and hour spent per day watching TV. For this post, I wanted to look at the mean and median TV hours and see how they differ once separated by age. We can see that the median time spent watching TV is 2 hours and the mean is about 3 hours. For young people, which I categorized as being under 30, their mean is slightly lower than the overall mean and their median is the same. Older people, or those over 30, had more TV hours with a median of 3 and a higher average than the overall mean.
+
+```{r}
+library(tidyverse)
+
+gss_cat %>%
+  filter(tvhours>0) %>%
+  summarise(mean_tv = mean(tvhours),
+            median_tv = median(tvhours))
+
+gss_cat %>%
+  filter(tvhours>0) %>%
+  filter(age<30) %>%
+  summarise(mean_tv_young = mean(tvhours),
+            median_tv_young = median(tvhours))
+
+gss_cat %>%
+  filter(tvhours>0) %>%
+  filter(age>30) %>%
+  summarise(mean_tv_old = mean(tvhours),
+            median_tv_old = median(tvhours))
+
+```

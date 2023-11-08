@@ -1,0 +1,16 @@
+{
+  "hash": "d9f435917c01332fcb7ddf78cfc831f9",
+  "result": {
+    "markdown": "---\ntitle: \"Income Measured Across Religious Affiliation\"\nauthor: \"Alex Joffe\"\ndate: \"2023-11-06\"\ncategories: [code, analysis]\nimage: \"image.jpg\"\n---\n\n\nThis data set is built-in with tidyr and is pulled from a pew research study from 2007 which asked respondents various questions and then categorized their answers based on religious affiliation. One of these was income and that is what this data set is representing. Its worth noting that these figures are self-reported and some refused to answer.\n\nWhile different religions had different number of total respondents, by visualizing the data we can come to some conclusions. One of these is that Evangelical Protestants had a greater presence in the \\<10k category than the \\>\\$150k category and Mainline Protestants were the inverse. Atheists, Agnostics, Hindus, Jews, and Catholics were more likely to be in the \\>\\$150k category by relatively large margins.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n```\n:::\n\n```{.r .cell-code}\nrelig_income %>%\n  ggplot(aes(x=religion, y= `>150k`)) + geom_col(fill=\"red\") +\n  theme(axis.text.x = element_text(angle = 45)) +\n  theme(axis.text.x = element_text(vjust = 1.2)) +\n  theme(axis.text.x = element_text(hjust = 1.1))\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n```{.r .cell-code}\nrelig_income %>%\n  ggplot(aes(x=religion, y= `<$10k`)) + geom_col(fill=\"blue\") +\n  theme(axis.text.x = element_text(angle = 45)) + \n  theme(axis.text.x = element_text(vjust = 1.2)) +\n  theme(axis.text.x = element_text(hjust = 1.1))\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

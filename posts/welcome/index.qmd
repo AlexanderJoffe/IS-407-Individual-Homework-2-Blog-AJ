@@ -1,0 +1,10 @@
+---
+title: "About Me"
+author: "Alex Joffe"
+date: "2023-11-01"
+categories: [about me]
+---
+
+Hello my name is Alex Joffe and I am a student at the University of Illinois. I am interested in history and information sciences. I play the saxophone and enjoy hiking and travel.
+
+![](images/Central%20Park.jpg)

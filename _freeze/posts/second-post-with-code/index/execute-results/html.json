@@ -1,0 +1,14 @@
+{
+  "hash": "e1964572f7e3ba41573315564bd3bdff",
+  "result": {
+    "markdown": "---\ntitle: \"How much TV are people watching, separated by age\"\nauthor: \"Alex Joffe\"\ndate: \"2023-11-06\"\ncategories: [code, analysis]\nimage: \"image.jpg\"\n---\n\n\nThis data set is part of the forcats package and asks general questions of around 21,000 respondents, covering things like age, religion, party affiliation, and hour spent per day watching TV. For this post, I wanted to look at the mean and median TV hours and see how they differ once separated by age. We can see that the median time spent watching TV is 2 hours and the mean is about 3 hours. For young people, which I categorized as being under 30, their mean is slightly lower than the overall mean and their median is the same. Older people, or those over 30, had more TV hours with a median of 3 and a higher average than the overall mean.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n```\n:::\n\n```{.r .cell-code}\ngss_cat %>%\n  filter(tvhours>0) %>%\n  summarise(mean_tv = mean(tvhours),\n            median_tv = median(tvhours))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 1 × 2\n  mean_tv median_tv\n    <dbl>     <dbl>\n1    3.17         2\n```\n:::\n\n```{.r .cell-code}\ngss_cat %>%\n  filter(tvhours>0) %>%\n  filter(age<30) %>%\n  summarise(mean_tv_young = mean(tvhours),\n            median_tv_young = median(tvhours))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 1 × 2\n  mean_tv_young median_tv_young\n          <dbl>           <int>\n1          3.04               2\n```\n:::\n\n```{.r .cell-code}\ngss_cat %>%\n  filter(tvhours>0) %>%\n  filter(age>30) %>%\n  summarise(mean_tv_old = mean(tvhours),\n            median_tv_old = median(tvhours))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 1 × 2\n  mean_tv_old median_tv_old\n        <dbl>         <dbl>\n1        3.21             3\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
