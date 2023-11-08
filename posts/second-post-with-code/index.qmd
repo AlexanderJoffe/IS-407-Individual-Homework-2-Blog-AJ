@@ -1,5 +1,5 @@
 ---
-title: "How much TV are people watching, separated by age"
+title: "How Much TV are People Watching, Separated by Age"
 author: "Alex Joffe"
 date: "2023-11-06"
 categories: [code, analysis]

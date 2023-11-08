@@ -6,7 +6,7 @@ categories: [code, analysis]
 image: "image.jpg"
 ---
 
-This data set is built-in with tidyr and is pulled from a pew research study from 2007 which asked respondents various questions and then categorized their answers based on religious affiliation. One of these was income and that is what this data set is representing. Its worth noting that these figures are self-reported and some refused to answer.
+This data set is built-in with tidyr and is pulled from a Pew Research study from 2007 which asked respondents various questions and then categorized their answers based on religious affiliation. One of these was income and that is what this data set is representing. Its worth noting that these figures are self-reported and some refused to answer.
 
 While different religions had different number of total respondents, by visualizing the data we can come to some conclusions. One of these is that Evangelical Protestants had a greater presence in the \<10k category than the \>\$150k category and Mainline Protestants were the inverse. Atheists, Agnostics, Hindus, Jews, and Catholics were more likely to be in the \>\$150k category by relatively large margins.
 
