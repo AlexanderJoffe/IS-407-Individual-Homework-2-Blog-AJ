@@ -1,6 +1,6 @@
 project:
   type: website
-
+  output-dir: docs
 website:
   title: "IS 407 Individual Homework 2 Blog AJ"
   navbar:
